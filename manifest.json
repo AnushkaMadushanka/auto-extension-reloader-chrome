@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "minimum_chrome_version": "41",
+  "name": "Auto Extension Reloader",
+  "short_name": "Auto Extension Reloader",
+  "description": "Auto reload the extensions after a build",
+  "version": "1.0.0",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "Auto Extension Reloader",
+    "default_icon": "public/images/default_icon/6.ico"
+  },
+  "icons": {
+    "16": "public/images/default_icon/1.ico",
+    "24": "public/images/default_icon/2.ico",
+    "32": "public/images/default_icon/3.ico",
+    "48": "public/images/default_icon/4.ico",
+    "64": "public/images/default_icon/5.ico",
+    "128": "public/images/default_icon/6.ico"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "scripts/content.js"
+      ]
+    }
+  ],
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "web_accessible_resources": [
+    "public/images/loading.gif"
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "management",
+    "notifications"
+  ]
+}
